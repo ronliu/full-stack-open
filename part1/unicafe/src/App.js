@@ -3,12 +3,8 @@ import React, { useState } from 'react'
 const Statistics = ({ good, neutral, bad }) => {
 
   const total = good + neutral + bad
-
-  // average score (good: 1, neutral: 0, bad: -1)
-  const average = (good - bad) / total
-
-  // percentage of positive feedback
-  const positive = (good / total) * 100
+  const average = (good - bad) / total // average score (good: 1, neutral: 0, bad: -1)
+  const positive = (good / total) * 100 // percentage of positive feedback
 
   return (
     <div>
