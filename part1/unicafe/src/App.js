@@ -4,6 +4,13 @@ const Button = ({ handleClick, text }) => (
   <button onClick={handleClick}>{text}</button>
 )
 
+const Statistic = ({ text, value }) => (
+  <tr>
+    <td>{text}</td>
+    <td>{value}</td>
+  </tr>
+)
+
 const Statistics = ({ good, neutral, bad }) => {
   const all = good + neutral + bad // total number of feedback
   const average = (good - bad) / all // average score (good: 1, neutral: 0, bad: -1)
@@ -18,20 +25,18 @@ const Statistics = ({ good, neutral, bad }) => {
   }
 
   return (
-    <div>
-      <Statistic text="Good" value={good}/>
-      <Statistic text="Neutral" value={neutral}/>
-      <Statistic text="Bad" value={bad}/>
-      <Statistic text="All" value={all}/>
-      <Statistic text="Average" value={average}/>
-      <Statistic text="Positive" value={positive}/>
-    </div>
+    <table>
+      <tbody>
+        <Statistic text="Good" value={good}/>
+        <Statistic text="Neutral" value={neutral}/>
+        <Statistic text="Bad" value={bad}/>
+        <Statistic text="All" value={all}/>
+        <Statistic text="Average" value={average}/>
+        <Statistic text="Positive" value={positive}/>
+      </tbody>
+    </table>
   )
 }
-
-const Statistic = ({ text, value }) => (
-  <p>{text} {value}</p>
-)
 
 const App = () => {
   // save clicks of each button to its own state
